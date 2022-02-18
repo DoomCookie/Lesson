@@ -6,15 +6,16 @@ public class GroundChecker : MonoBehaviour
 {
     public bool isGround;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         isGround = true;
-        Debug.Log("enter");
+        Debug.Log("Enter");
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionExit(Collision other)
     {
         isGround = false;
-        Debug.Log("exit");
+        Debug.Log("Exit");
     }
+
 }

@@ -8,11 +8,11 @@ public class Spawn : MonoBehaviour
     [SerializeField]
     GameObject sphere;
     int count;
-    Score score;
+    //Score score;
     // Start is called before the first frame update
     private void Start()
     {
-        score = GetComponent<Score>(); ;
+        //score = GetComponent<Score>(); ;
     }
     
 
@@ -27,7 +27,7 @@ public class Spawn : MonoBehaviour
             sp.GetComponent<Rigidbody>().AddForce(transform.forward * 20, ForceMode.Impulse);
             Delete_self ds = sp.GetComponent<Delete_self>();
             ds.count = count;
-            ds.score = score;
+           //ds.score = score;
 
         }
     }

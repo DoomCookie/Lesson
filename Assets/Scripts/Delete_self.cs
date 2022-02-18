@@ -9,7 +9,7 @@ public class Delete_self : MonoBehaviour
     [SerializeField]
     Material[] mr;
     public int count;
-    public Score score;
+    //public Score score;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +25,10 @@ public class Delete_self : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+
+        
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -32,21 +36,21 @@ public class Delete_self : MonoBehaviour
         count = count % mr.Length;
         if(collision.gameObject.tag == "Target")
         {
-            Destroy(collision.gameObject);
-            score.hit(100);
+            //(collision.gameObject);
+            //score.hit(100);
         }
         if(collision.gameObject.tag == "Target1")
         {
             collision.gameObject.GetComponent<MeshRenderer>().material = mr[count];
-            score.hit(200);
+            //score.hit(200);
         }
         if(collision.gameObject.tag == "Target2")
         {
             collision.gameObject.GetComponent<MeshRenderer>().material = mr[0];
-            score.hit(300);
+            //score.hit(300);
         }
         collision.gameObject.tag = "UnTarget";
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 
     private void OnCollisionExit(Collision other)
