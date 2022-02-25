@@ -744,6 +744,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pixelsPrefabs:
   - {fileID: 3424065015226732765, guid: 814cc2143d217e54eab718264bf39070, type: 3}
+  - {fileID: 3424065015226732765, guid: 94a106eb8ed5287409314b7a1245de32, type: 3}
+  - {fileID: 3424065015226732765, guid: 7dc7f04364a0bd845a4e9ca890f1c3b0, type: 3}
+  - {fileID: 3424065015226732765, guid: cb48a6b4ff6c3674da13d12d92faee77, type: 3}
+  - {fileID: 3424065015226732765, guid: 1854077614b71bd43976dbd0c824fd2b, type: 3}
+  - {fileID: 3424065015226732765, guid: bbce53c843cdcf541a0633c6219ffddc, type: 3}
+  - {fileID: 3424065015226732765, guid: 927251f59801c224ba1736c223aacc69, type: 3}
   width: 5
   height: 5
 --- !u!4 &418046905
