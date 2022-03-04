@@ -8,14 +8,15 @@ TagManager:
   - Target1
   - Target2
   - UnTarget
+  - Gun
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Target
+  - 
   - Water
   - UI
-  - Ground
+  - 
   - 
   - 
   - 

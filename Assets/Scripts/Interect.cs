@@ -5,14 +5,12 @@ using UnityEngine;
 public class Interect : MonoBehaviour
 {
     [SerializeField]
-    Transform cam;
     Material mat;
     MeshRenderer mesh;
 
     private void Start()
     {
         mesh = GetComponent<MeshRenderer>();
-        mat = mesh.material;
     }
 
     private void Update()
@@ -24,18 +22,35 @@ public class Interect : MonoBehaviour
     public void push()
     {
         Destroy(gameObject);
-        Transform gun = cam.GetChild(0);
-        if(gun)
-        {
-            
-            Destroy(gun);
-        }
-        Vector3 coord_guns = gun.position;
-        Shoot sh = gun.GetComponent<Shoot>();
-        transform.SetParent(cam);
-        transform.position = coord_guns;
-        gameObject.AddComponent<Shoot>();
+        
 
+
+    }
+
+
+    public void pickup(Transform cam)
+    {
+        Transform gun = cam.GetChild(0);
+        if (gun)
+        {
+
+            Vector3 coord_guns = gun.localPosition;
+            Quaternion rot = gun.localRotation;
+
+            gun.SetParent(transform.parent);
+            gun.localPosition = transform.localPosition;
+            gun.localRotation = transform.localRotation;
+            gun.GetComponent<Interect>().enabled = true;
+            gun.GetComponent<Shoot>().enabled = false;
+
+
+            transform.SetParent(cam);
+            transform.localPosition = coord_guns;
+            transform.localRotation = rot;
+            
+            GetComponent<Shoot>().enabled = true;
+            GetComponent<Interect>().enabled = false;
+        }
 
     }
 }

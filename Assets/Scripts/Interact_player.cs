@@ -17,13 +17,21 @@ public class Interact_player : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
-        if(Physics.Raycast(ray, out hit, 2) && hit.transform.tag == "Target2")
+        if(Physics.Raycast(ray, out hit, 2))
         {
             hit.transform.GetComponent<MeshRenderer>().material = mat;
-            if(Input.GetButton("Interact"))
+            if(Input.GetButtonDown("Interact"))
             {
                 Interect inter = hit.transform.GetComponent<Interect>();
-                inter.push();
+                if(hit.transform.tag == "Target2")
+                {
+                    inter.push();
+                }
+                else if (hit.transform.tag == "Gun")
+                {
+                    inter.pickup(gameObject.transform);
+                }
+                
             }
             
         }

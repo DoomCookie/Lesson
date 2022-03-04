@@ -5,8 +5,7 @@ using UnityEngine;
 public class MoveCar : MonoBehaviour
 {
 
-    [SerializeField]
-    float speed;
+
 
     float velocityx;
     float a = 1.1f;
@@ -21,20 +20,24 @@ public class MoveCar : MonoBehaviour
     {
         float movez = Input.GetAxis("Vertical") * Time.deltaTime;
         float movex = Input.GetAxis("Horizontal") * 60 * Time.deltaTime;
+
         velocityx += a * movez;
         transform.position += transform.forward * velocityx;
+
+        
+
         if (Mathf.Abs(velocityx) > 0.0f)
         {
             velocityx -= 0.05f * (Mathf.Sign(velocityx)) * Time.deltaTime;
             transform.Rotate(Vector3.up * movex);
         }
 
-        if(Mathf.Abs(velocityx) > 0.1f)
+        if (Mathf.Abs(velocityx) > 0.1f)
         {
-            velocityx = 0.1f * Mathf.Abs(velocityx);
+            velocityx = 0.1f * Mathf.Sign(velocityx);
         }
 
-        if (Mathf.Abs(velocityx) < 0.01f)
+        if (Mathf.Abs(velocityx) < 0.0001f)
         {
             velocityx = 0;
         }
