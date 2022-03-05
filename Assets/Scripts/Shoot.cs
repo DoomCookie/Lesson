@@ -14,12 +14,10 @@ public class Shoot : MonoBehaviour
     Transform camera;
     float count = 0;
     GameObject tmp;
-
     private void Start()
     {
         tmp = Instantiate(point);
         tmp.transform.localScale = Vector3.one * 0.2f;
-        
 
     }
 
@@ -36,12 +34,12 @@ public class Shoot : MonoBehaviour
         {
             
             Vector3 pos = transform.position;
-            pos += transform.forward * 0.75f;
+            pos += transform.forward * 1f;
             GameObject bullet = Instantiate(bullet_pref);
             bullet.transform.position = pos;
             bullet.GetComponent<Delete_self>().index = 2;
             Rigidbody rb_b = bullet.GetComponent<Rigidbody>();
-
+            bullet.GetComponent<Delete_self>().score = GetComponent<Score>();
             
             Vector3 vel = pos - transform.position;
 
@@ -51,7 +49,7 @@ public class Shoot : MonoBehaviour
             }
 
             vel = vel.normalized;
-            rb_b.AddForce(vel * bullet_speed, ForceMode.Impulse);
+            rb_b.AddForce(vel * (bullet_speed), ForceMode.Impulse);
             count++;
         }
     }
