@@ -7,7 +7,7 @@ public class Interact_player : MonoBehaviour
 {
     [SerializeField]
     Material mat;
-    string[] tags = { "Target2", "Gun" };
+    string[] tags = { "Target2", "Gun", "Door" };
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +32,10 @@ public class Interact_player : MonoBehaviour
                 else if (hit.transform.tag == "Gun")
                 {
                     inter.pickup(gameObject.transform);
+                }
+                else if (hit.transform.tag == "Door")
+                {
+                    hit.transform.GetComponent<OpenDoor>().interactDoor();
                 }
                 
             }
