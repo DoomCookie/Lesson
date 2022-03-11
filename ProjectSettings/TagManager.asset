@@ -9,6 +9,7 @@ TagManager:
   - Target2
   - UnTarget
   - Gun
+  - Door
   layers:
   - Default
   - TransparentFX
