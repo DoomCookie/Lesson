@@ -15,7 +15,7 @@ public class Interect : MonoBehaviour
 
     private void Update()
     {
-        mesh.material = mat;
+       
     }
 
 

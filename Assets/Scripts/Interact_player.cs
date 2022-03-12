@@ -8,6 +8,8 @@ public class Interact_player : MonoBehaviour
     [SerializeField]
     Material mat;
     string[] tags = { "Target2", "Gun", "Door" };
+    Material oldMat = null;
+    GameObject lastFrameObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,10 @@ public class Interact_player : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit, 2) && Array.Exists<string>(tags, element => element == hit.transform.tag))
         {
+            if(!oldMat)
+            {
+                oldMat = hit.transform.GetComponent<MeshRenderer>().material;
+            }
             hit.transform.GetComponent<MeshRenderer>().material = mat;
             if(Input.GetButtonDown("Interact"))
             {
@@ -39,7 +45,13 @@ public class Interact_player : MonoBehaviour
                 }
                 
             }
+            lastFrameObj = hit.transform.gameObject;
             
+        }
+        else if (oldMat)
+        {
+            lastFrameObj.GetComponent<MeshRenderer>().material = oldMat;
+            oldMat = null;
         }
     }
 }
