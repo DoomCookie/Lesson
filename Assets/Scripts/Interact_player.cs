@@ -41,7 +41,7 @@ public class Interact_player : MonoBehaviour
                 }
                 else if (hit.transform.tag == "Door")
                 {
-                    hit.transform.GetComponent<OpenDoor>().interactDoor();
+                    hit.transform.GetComponent<OpenDoorAnim>().InteractDoor();
                 }
                 
             }
