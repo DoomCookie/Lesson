@@ -45,18 +45,19 @@ public class PlayerMovment : MonoBehaviour
         float moveZ = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
-        if(!isGrounded)
-        {
-            controller.Move(oldMove * speed * Time.deltaTime);
-        }
-        else
-        {
-            controller.Move(move * speed * Time.deltaTime);
-            oldMove = move;
-        }
-        
-        
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        controller.Move(move * speed * Time.deltaTime);
+        //if(!isGrounded)
+        //{
+        //    controller.Move(oldMove * speed * Time.deltaTime);
+        //}
+        //else
+        //{
+        //    controller.Move(move * speed * Time.deltaTime);
+        //    oldMove = move;
+        //}
+
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }

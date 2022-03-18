@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class MyCamera : MonoBehaviour
 {
     enum Rotation { X = 0, Y = 1}
     [SerializeField]
